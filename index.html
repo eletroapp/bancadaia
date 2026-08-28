@@ -299,6 +299,7 @@ a{color:var(--phos)}
     <button id="btnMore" class="ghost tiny" aria-expanded="false" aria-haspopup="true" title="mais opções">⋮</button>
     <div class="hdr-actions">
       <button id="btnManual" class="ghost">Manual</button>
+      <button id="btnGrafico" class="ghost">Gráfico</button>
       <button id="btnImg" class="ghost">Imagem</button>
       <button id="btnExport" class="ghost">Exportar</button>
       <button id="btnImport" class="ghost">Importar</button>
@@ -318,8 +319,34 @@ a{color:var(--phos)}
         <div class="row" style="gap:6px;align-items:center">
           <button id="btnWebSearch" class="mode-btn tiny">Busca: OFF</button>
         </div>
-        <div class="fld" style="margin-top:6px"><label>Chave Serper</label><input type="password" id="serperKey" placeholder="cole a chave da serper.dev" autocomplete="off"></div>
+        <div class="fld" style="margin-top:6px"><label>Chave Serper</label><input type="password" id="serperKey" placeholder="cole a chave da serper.dev" autocomplete="new-password" spellcheck="false"></div>
+        <div class="row" style="gap:6px;align-items:center;margin-top:6px">
+          <button id="btnTestSerper" class="ghost tiny">testar chave</button>
+          <span id="serperTestOut" class="hint"></span>
+        </div>
         <p class="hint" style="margin-top:4px">Quando ligada, as IAs podem pesquisar no Google (via <a href="https://serper.dev" target="_blank" rel="noopener">Serper</a>) antes de responder — útil pra preço, notícia, versão de software, cotação, qualquer coisa que possa ter mudado. Crie uma chave grátis em serper.dev (2.500 buscas de cortesia). A chave fica só no <code>localStorage</code> deste navegador, nunca sai no <b>Exportar</b>.</p>
+      </div>
+      <div class="sect">
+        <div class="sect-hd">Fonte de mercado — MT5</div>
+        <div class="row" style="gap:6px;align-items:center">
+          <button id="btnMt5" class="mode-btn tiny">MT5: OFF</button>
+        </div>
+        <div class="fld" style="margin-top:6px"><label>URL da bridge</label><input type="text" id="mt5BridgeUrl" placeholder="http://127.0.0.1:5001" autocomplete="off"></div>
+        <div class="fld" style="margin-top:6px"><label>Símbolo padrão (usado quando não especificar outro)</label><input type="text" id="mt5Symbol" placeholder="XAUUSD" autocomplete="off"></div>
+        <div class="row" style="gap:6px;align-items:center;margin-top:6px">
+          <button id="btnTestMt5" class="ghost tiny">testar conexão</button>
+          <span id="mt5TestOut" class="hint"></span>
+        </div>
+        <div id="mt5Quote" class="hint" style="margin-top:6px"></div>
+        <div class="fld" style="margin-top:9px">
+          <label>Ativos favoritos (atalho no gráfico e nas perguntas)</label>
+          <div class="row" style="gap:6px;margin-top:4px">
+            <input type="text" id="mt5WatchAdd" placeholder="ex: EURUSD" style="flex:1" autocomplete="off">
+            <button id="btnMt5WatchAdd" class="ghost tiny">+ adicionar</button>
+          </div>
+          <div id="mt5Watchlist" class="row" style="gap:5px;flex-wrap:wrap;margin-top:6px"></div>
+        </div>
+        <p class="hint" style="margin-top:8px">Liga a ponte local (<code>mt5_bridge.py</code>) rodando na mesma máquina do terminal MT5 aberto e logado. Com isso ligado, as IAs ganham a ferramenta de consultar preço e candles reais do MT5 — de qualquer ativo e timeframe que existir no seu MT5, não só do símbolo padrão. Basta pedir, ex.: "analise o EURUSD em H1".</p>
       </div>
       <div class="sect">
         <div class="sect-hd">Carga do contexto</div>
@@ -424,12 +451,13 @@ const PERFIS={
   mql5:{nome:"MQL5",txt:BASE+`\n\nMQL5 NÃO É MQL4.\n- iMA/iRSI/iMACD etc. devolvem HANDLE int. Use CopyBuffer para ler valores. Crie handles no OnInit.\n- NÃO existem em MQL5: SetIndexLabel, SetIndexStyle, IndicatorShortName, IndicatorBuffers, SetIndexBuffer(2 args).\n- OnCalculate recebe (rates_total,prev_calculated,...) e devolve rates_total.\n- Ordens via MqlTradeRequest/OrderSend ou CTrade. Libere handles no OnDeinit.`},
   web:{nome:"Web single-file",txt:BASE+`\n\nArquivo único .html — HTML, CSS e JS vanilla. Sem build, npm, framework ou TypeScript. GitHub Pages, offline-first.\n- Sem import/require. CDN só se indispensável. Estado em localStorage. Sem backend.\n- Devolva a função inteira, pronta para substituir.`},
   eletronica:{nome:"Eletrônica",txt:BASE+`\n\nEletrônica para iniciantes: SVG inline, explicação didática.\n- Símbolos corretos; não invente pinagem. Mostre a fórmula antes do resultado.\n- SVG: coordenadas explícitas, sem fonte externa, sem overflow.`},
+  trader:{nome:"Trader",txt:BASE+`\n\nAnálise técnica sobre dados reais do MetaTrader 5 (ferramentas mt5_preco_atual, mt5_candles e mt5_favoritos_precos).\n- Você NÃO está limitado a um único ativo ou timeframe. O usuário pode ter vários ativos favoritos configurados — se ele pedir "meus ativos" ou algo genérico, use mt5_favoritos_precos. Se ele não disser qual ativo quer analisar e não estiver claro pelo contexto, pergunte antes de assumir XAUUSD.\n- Antes de opinar sobre qualquer ativo, SEMPRE chame mt5_candles para pegar a série real — nunca estime ou invente preço/candle/indicador de memória.\n- mt5_candles já devolve SMA20, SMA50 e RSI14 calculados de verdade no campo 'indicadores'. Cite SOMENTE esses valores quando falar de médias móveis ou RSI. Se um vier null, diga explicitamente "não deu pra calcular com os candles disponíveis" — nunca chute um número.\n- Não invente nenhum outro indicador (MACD, Bollinger, Fibonacci etc.) que não tenha vindo nos dados — se quiser usar algo assim, calcule manualmente a partir do array de candles retornado e mostre a conta, ou diga que não tem esse dado.\n- Se o usuário não disser o timeframe, use M3 e avise que usou esse padrão. Se ele pedir outro timeframe (M1, M5, M15, M30, H1, H4, D1) ou outro ativo, use exatamente o que ele pediu.\n- Estruture toda análise técnica exatamente nesta ordem:\n  1) Preço atual (bid/ask) e variação observada na série.\n  2) Suporte e resistência mais próximos, lidos nas máximas/mínimas reais da série retornada — não inventados.\n  3) Leitura de tendência: baseie-se na sequência real de topos/fundos dos candles E na relação preço x SMA20/SMA50 recebidos — se as duas leituras não baterem, diga isso ao invés de escolher a que soa melhor.\n  4) Possível ponto de operação: direção (compra/venda), gatilho de entrada, stop loss e alvo — sempre como cenário condicional ("se romper X" / "se rejeitar em Y"), nunca como ordem certa.\n  5) Um lembrete curto de que isso é leitura de mercado, não recomendação de investimento, e que o usuário decide a gestão de risco.\n- Se a ferramenta mt5_candles/mt5_preco_atual/mt5_favoritos_precos retornar erro (bridge offline, símbolo errado), diga isso claramente em vez de simular dados.\n- Nunca garanta resultado. Sempre fale em cenários e probabilidades, não em certezas.`},
   geral:{nome:"Geral",txt:BASE}
 };
 const sysTxt=()=>S.profile==="custom"?(S.systemCustom||BASE):(PERFIS[S.profile]||PERFIS.geral).txt;
 
 const LS="bancada-ia/v1";
-let S={title:"",brief:"",files:[],turns:[],profile:"geral",systemCustom:"",mode:"router",router:"gemini",chans:{},webSearchOn:false,serperKey:""};
+let S={title:"",brief:"",files:[],turns:[],profile:"geral",systemCustom:"",mode:"router",router:"gemini",chans:{},webSearchOn:false,serperKey:"",mt5On:false,mt5BridgeUrl:"http://127.0.0.1:5001",mt5Symbol:"XAUUSD",mt5Watchlist:["XAUUSD","EURUSD","NZDUSD","GBPUSD","USDJPY"]};
 for(const id in PROVIDERS)S.chans[id]={on:false,key:"",model:PROVIDERS[id].models[0]||""};
 
 const $=s=>document.querySelector(s);
@@ -444,6 +472,11 @@ const rpdOf=id=>Number(S.chans[id].rpd)||PROVIDERS[id].rpd;
 const modelOf=id=>(S.chans[id].model||"").trim();
 
 function save(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){setStatus("localStorage cheio — exporte e zere.",true)}}
+// Limpa texto de símbolo(s): separa por vírgula/ponto-e-vírgula/espaço, tira espaços e maiuscula.
+// Usado tanto pro campo "adicionar ativo" (pode receber vários colados de uma vez) quanto pro símbolo padrão.
+function limparSimbolos(txt){
+  return String(txt||"").split(/[,;\s]+/).map(s=>s.trim().toUpperCase()).filter(Boolean);
+}
 function load(){
   try{
     const raw=localStorage.getItem(LS);if(!raw)return;
@@ -453,6 +486,13 @@ function load(){
       S.chans[id]=Object.assign({on:false,key:"",model:PROVIDERS[id].models[0]||""},S.chans[id]||{});
       if(typeof S.chans[id].model!=="string")S.chans[id].model=PROVIDERS[id].models[0]||"";
     }
+    // Migração: limpa entradas antigas salvas erradas (ex.: "BTCUSD," com vírgula/espaço colado)
+    if(Array.isArray(S.mt5Watchlist)){
+      const limpos=[];
+      S.mt5Watchlist.forEach(sym=>{limparSimbolos(sym).forEach(s=>{if(!limpos.includes(s))limpos.push(s)})});
+      S.mt5Watchlist=limpos;
+    }
+    if(S.mt5Symbol)S.mt5Symbol=limparSimbolos(S.mt5Symbol)[0]||"XAUUSD";
   }catch(e){}
 }
 
@@ -542,6 +582,114 @@ async function buscarInternet(query,num){
   return{consulta:q,resposta_direta,ficha,resultados};
 }
 
+/* ===================== MT5_ENGINE (preço e candles reais) =====================
+   Fala com a ponte local mt5_bridge.py (mesma máquina do terminal MT5, aberto
+   e logado). O navegador não alcança o MT5 direto — só via essa ponte HTTP.
+   Só fica disponível para a IA quando o usuário liga "MT5" E preencheu a
+   URL da bridge, do contrário nem é oferecida no toolsFor().
+============================================================================ */
+const FERRAMENTA_MT5_PRECO = {
+  name:"mt5_preco_atual",
+  description:"Consulta o preço (bid/ask) em tempo real de um símbolo direto do terminal MetaTrader 5 do usuário, via ponte local. Use sempre que o usuário perguntar o preço/cotação atual de um ativo (ex: XAUUSD, EURUSD) e a ponte MT5 estiver disponível — é mais confiável que buscar na web, pois vem direto da corretora do usuário.",
+  parameters:{type:"object",properties:{
+    simbolo:{type:"string",description:"Nome exato do símbolo no MT5 do usuário (ex: XAUUSD, XAUUSDm, EURUSD). Se não souber, use o símbolo padrão configurado."}
+  },required:[]}
+};
+const FERRAMENTA_MT5_CANDLES = {
+  name:"mt5_candles",
+  description:"Busca uma série de candles OHLC recentes de um símbolo, direto do terminal MetaTrader 5 do usuário, via ponte local, já com SMA20, SMA50 e RSI14 calculados sobre esses mesmos candles (campo 'indicadores'). Funciona com QUALQUER símbolo e timeframe que existir no MT5 do usuário — não fique preso em XAUUSD/M3, pergunte ou infira o ativo certo pelo contexto da conversa. Use para análise técnica (suporte/resistência, tendência, padrões de candle) com dados reais. IMPORTANTE: cite só os valores de indicadores que vierem no campo 'indicadores' — nunca estime ou invente SMA/RSI/MACD de cabeça; se algum vier null (poucos candles pra calcular), diga que não deu pra calcular em vez de chutar um número.",
+  parameters:{type:"object",properties:{
+    simbolo:{type:"string",description:"Nome exato do símbolo no MT5 (ex: XAUUSD, EURUSD, US30). Se não souber, use o padrão configurado."},
+    timeframe:{type:"string",description:"M1, M3, M5, M15, M30, H1, H4 ou D1. Padrão M3 se não informado."},
+    quantidade:{type:"integer",description:"Número de candles a retornar (padrão 60, máx 300)."}
+  },required:[]}
+};
+const FERRAMENTA_MT5_FAVORITOS = {
+  name:"mt5_favoritos_precos",
+  description:"Consulta o preço (bid/ask) de TODOS os ativos da lista de favoritos do usuário de uma vez só, direto do MT5. Use quando o usuário perguntar algo tipo 'como estão meus ativos', 'me dá um panorama do mercado', ou qualquer coisa que envolva vários ativos ao mesmo tempo — mais eficiente que chamar mt5_preco_atual várias vezes.",
+  parameters:{type:"object",properties:{},required:[]}
+};
+
+function mt5Base(){return(S.mt5BridgeUrl||"").trim().replace(/\/$/,"")}
+function mt5SymbolPadrao(){return limparSimbolos(S.mt5Symbol)[0]||"XAUUSD"}
+
+function calcSMA(closes,periodo){
+  if(!closes||closes.length<periodo)return null;
+  const fatia=closes.slice(-periodo);
+  return Math.round((fatia.reduce((a,b)=>a+b,0)/periodo)*100)/100;
+}
+function calcRSI(closes,periodo){
+  periodo=periodo||14;
+  if(!closes||closes.length<periodo+1)return null;
+  let ganhos=0,perdas=0;
+  for(let i=closes.length-periodo;i<closes.length;i++){
+    const d=closes[i]-closes[i-1];
+    if(d>=0)ganhos+=d;else perdas-=d;
+  }
+  const mediaGanho=ganhos/periodo,mediaPerda=perdas/periodo;
+  if(mediaPerda===0)return 100;
+  const rs=mediaGanho/mediaPerda;
+  return Math.round((100-(100/(1+rs)))*10)/10;
+}
+function calcATR(candles,periodo){
+  periodo=periodo||14;
+  if(!candles||candles.length<periodo+1)return null;
+  const TR=[];
+  for(let i=1;i<candles.length;i++){
+    const h=candles[i].high,l=candles[i].low,pc=candles[i-1].close;
+    TR.push(Math.max(h-l,Math.abs(h-pc),Math.abs(l-pc)));
+  }
+  if(TR.length<periodo)return null;
+  let atr=TR.slice(0,periodo).reduce((a,b)=>a+b,0)/periodo;
+  for(let i=periodo;i<TR.length;i++)atr=(atr*(periodo-1)+TR[i])/periodo;
+  return atr;
+}
+function calcIndicadores(candles){
+  const closes=(candles||[]).map(c=>c.close).filter(v=>typeof v==="number");
+  const atr=calcATR(candles,14);
+  return{
+    sma20:calcSMA(closes,20),
+    sma50:calcSMA(closes,50),
+    rsi14:calcRSI(closes,14),
+    atr14:atr!==null?Math.round(atr*100000)/100000:null,
+    obs:closes.length<50?"Amostra pequena — sma50 e/ou rsi14 podem ter vindo null. Peça mais candles (quantidade) se precisar.":null
+  };
+}
+
+async function mt5Preco(simbolo){
+  const base=mt5Base();
+  if(!base)return{erro:"Ponte MT5 sem URL configurada. Abra ☰ → Fonte de mercado — MT5 e preencha a URL da bridge."};
+  const sym=(simbolo||"").trim()||mt5SymbolPadrao();
+  let r;
+  try{r=await fetch(`${base}/rates?symbol=${encodeURIComponent(sym)}&timeframe=M1&count=1`,{cache:"no-store"})}
+  catch(e){return{erro:"Não consegui alcançar a bridge MT5 — confira se mt5_bridge.py está rodando na máquina do terminal."}}
+  let data;try{data=await r.json()}catch(e){return{erro:`Resposta inválida da bridge (HTTP ${r.status}).`}}
+  if(!r.ok||data.error)return{erro:data.error||`Bridge MT5 retornou HTTP ${r.status}.`};
+  return{simbolo:data.symbol,bid:data.bid,ask:data.ask,ultimo_candle:data.candles?.[data.candles.length-1]||null};
+}
+async function mt5Candles(simbolo,timeframe,quantidade){
+  const base=mt5Base();
+  if(!base)return{erro:"Ponte MT5 sem URL configurada. Abra ☰ → Fonte de mercado — MT5 e preencha a URL da bridge."};
+  const sym=(simbolo||"").trim()||mt5SymbolPadrao();
+  const tf=(timeframe||"M3").trim().toUpperCase();
+  const n=Math.min(Math.max(parseInt(quantidade,10)||60,10),300);
+  let r;
+  try{r=await fetch(`${base}/rates?symbol=${encodeURIComponent(sym)}&timeframe=${tf}&count=${n}`,{cache:"no-store"})}
+  catch(e){return{erro:"Não consegui alcançar a bridge MT5 — confira se mt5_bridge.py está rodando na máquina do terminal."}}
+  let data;try{data=await r.json()}catch(e){return{erro:`Resposta inválida da bridge (HTTP ${r.status}).`}}
+  if(!r.ok||data.error)return{erro:data.error||`Bridge MT5 retornou HTTP ${r.status}.`};
+  return{simbolo:data.symbol,timeframe:data.timeframe,bid:data.bid,ask:data.ask,candles:data.candles,indicadores:calcIndicadores(data.candles)};
+}
+async function mt5FavoritosPrecos(){
+  const lista=S.mt5Watchlist||[];
+  if(!lista.length)return{erro:"Nenhum ativo favorito cadastrado. Abra ☰ → Fonte de mercado — MT5 e adicione ativos na lista."};
+  const resultados=await Promise.all(lista.map(async sym=>{
+    const r=await mt5Preco(sym);
+    return r.erro?{simbolo:sym,erro:r.erro}:{simbolo:r.simbolo,bid:r.bid,ask:r.ask};
+  }));
+  return{favoritos:resultados};
+}
+
 /* ===================== FERRAMENTAS (function calling) =====================
    Ferramentas expostas à IA via function calling.
 ============================================================================ */
@@ -550,12 +698,29 @@ function toolsFor(id){
   const lista=[];
   const buscaLigada=S.webSearchOn&&(S.serperKey||"").trim();
   if(buscaLigada)lista.push(FERRAMENTA_BUSCA_WEB);
+  const mt5Ligado=S.mt5On&&mt5Base();
+  if(mt5Ligado){
+    lista.push(FERRAMENTA_MT5_PRECO);lista.push(FERRAMENTA_MT5_CANDLES);
+    if((S.mt5Watchlist||[]).length)lista.push(FERRAMENTA_MT5_FAVORITOS);
+  }
   if(P.kind==="gemini")return[{functionDeclarations:lista}];
   return lista.map(f=>({type:"function",function:f}));
 }
 async function executarFerramenta(nome,args){
   if(nome==="buscar_na_internet"){
     const r=await buscarInternet(args.consulta,args.quantidade);
+    return JSON.stringify(r);
+  }
+  if(nome==="mt5_preco_atual"){
+    const r=await mt5Preco(args.simbolo);
+    return JSON.stringify(r);
+  }
+  if(nome==="mt5_favoritos_precos"){
+    const r=await mt5FavoritosPrecos();
+    return JSON.stringify(r);
+  }
+  if(nome==="mt5_candles"){
+    const r=await mt5Candles(args.simbolo,args.timeframe,args.quantidade);
     return JSON.stringify(r);
   }
   return JSON.stringify({erro:"Ferramenta desconhecida: "+nome});
@@ -723,6 +888,167 @@ function abrirPonte(){
     addTurn({role:"assistant",provider:"ponte",model:"ponte manual",content:r});
     d.remove();setStatus("Resposta trazida pela ponte.");
   };
+}
+
+function abrirGrafico(){
+  const d=document.createElement("div");d.className="modal-veil";
+  d.innerHTML=`<div style="background:var(--panel);border:1px solid var(--phos);border-radius:3px;flex:1;display:flex;flex-direction:column;padding:13px;gap:9px;overflow-y:auto;-webkit-overflow-scrolling:touch;max-width:1000px;margin:0 auto">
+    <div class="row" style="gap:8px;align-items:center;flex-wrap:wrap">
+      <span class="lab" style="color:var(--phos);font-size:12px">Gráfico MT5</span>
+      <input type="text" id="_gSym" style="width:100px" placeholder="XAUUSD">
+      <select id="_gTf" style="background:#1b2c34;color:var(--ink);border:1px solid var(--rule);border-radius:2px;padding:5px 7px;font-family:var(--mono);font-size:12px">
+        <option value="M1">M1</option><option value="M3" selected>M3</option>
+        <option value="M5">M5</option><option value="M15">M15</option>
+        <option value="M30">M30</option><option value="H1">H1</option>
+        <option value="H4">H4</option><option value="D1">D1</option>
+      </select>
+      <button id="_gGo" class="ghost tiny">atualizar</button>
+      <label class="hint" style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" id="_gAuto" style="width:auto"> auto 10s</label>
+      <label class="hint" style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" id="_gAtr" style="width:auto" checked> plano ATR</label>
+      <span id="_gPrice" class="lab" style="color:var(--amber);font-size:16px;margin-left:auto"></span>
+      <button id="_gx" class="ghost tiny" title="fechar">✕</button>
+    </div>
+    <div id="_gWatch" class="row" style="gap:5px;flex-wrap:wrap"></div>
+    <canvas id="_gCanvas" width="1100" height="420" style="width:100%;height:auto;max-height:44vh;background:var(--panel-2);border-radius:2px;flex-shrink:0"></canvas>
+    <div class="row" style="gap:14px;flex-wrap:wrap;flex-shrink:0">
+      <label class="hint">Resistência <input type="number" id="_gRes" value="4700" step="any" style="width:90px"></label>
+      <label class="hint">Suporte <input type="number" id="_gSup" value="4600" step="any" style="width:90px"></label>
+      <label class="hint">Stop (× ATR) <input type="number" id="_gStopMult" value="1.5" step="0.1" min="0.1" style="width:60px"></label>
+      <label class="hint">Alvo (× ATR) <input type="number" id="_gAlvoMult" value="3" step="0.1" min="0.1" style="width:60px"></label>
+      <span id="_gStatus" class="hint" style="flex:1"></span>
+    </div>
+    <div id="_gTicket" class="hint" style="display:flex;flex-wrap:wrap;gap:12px;padding:8px 10px;background:var(--panel-2);border-radius:2px;border:1px solid var(--rule-soft)"></div>
+    <div class="row" style="flex-shrink:0"><span style="flex:1"></span><button id="_gxBottom" class="primary">fechar</button></div>
+  </div>`;
+  document.body.appendChild(d);
+
+  const symInp=d.querySelector("#_gSym"),tfInp=d.querySelector("#_gTf"),resInp=d.querySelector("#_gRes"),supInp=d.querySelector("#_gSup");
+  const stopMultInp=d.querySelector("#_gStopMult"),alvoMultInp=d.querySelector("#_gAlvoMult"),atrChk=d.querySelector("#_gAtr");
+  const canvas=d.querySelector("#_gCanvas"),ctx=canvas.getContext("2d");
+  const priceEl=d.querySelector("#_gPrice"),statusEl=d.querySelector("#_gStatus"),watchEl=d.querySelector("#_gWatch"),ticketEl=d.querySelector("#_gTicket");
+  symInp.value=mt5SymbolPadrao();
+  let autoTimer=null,ultimoSimbolo=null;
+  const fechar=()=>{if(autoTimer)clearInterval(autoTimer);d.remove()};
+
+  function casasFor(p){if(p>=1000)return 2;if(p>=100)return 2;if(p>=10)return 3;return 5}
+
+  function pintaWatch(){
+    watchEl.innerHTML="";
+    (S.mt5Watchlist||[]).forEach(sym=>{
+      const b=document.createElement("button");
+      b.className="ghost tiny"+(sym===symInp.value.trim().toUpperCase()?" sel":"");
+      b.textContent=sym;
+      b.onclick=()=>{symInp.value=sym;atualizar()};
+      watchEl.appendChild(b);
+    });
+  }
+
+  // Plano de entrada/saída por ATR: direção pela tendência recente (preço atual
+  // vs. fechamento de N candles atrás), distâncias de stop/alvo em múltiplos de ATR.
+  // Mesma lógica do console-trade-pro, só que em cima do ATR real calculado dos
+  // candles do MT5 (calcATR, já validado à mão contra fórmula de Wilder).
+  function montarPlanoATR(candles,preco,casas){
+    const closes=candles.map(c=>c.close);
+    const atr=calcATR(candles,14);
+    if(!atr){ticketEl.innerHTML=`<span style="color:var(--dim)">ATR indisponível — poucos candles pra calcular (peça mais no atualizar).</span>`;return null}
+    const janela=Math.min(5,closes.length-1);
+    const referencia=closes[closes.length-1-janela];
+    const alta=preco>=referencia;
+    const stopMult=parseFloat(stopMultInp.value)||1.5;
+    const alvoMult=parseFloat(alvoMultInp.value)||3;
+    let entrada=preco,stop,alvo,direcao,cor;
+    if(alta){direcao="COMPRA";cor="var(--ok)";stop=preco-atr*stopMult;alvo=preco+atr*alvoMult}
+    else{direcao="VENDA";cor="var(--over)";stop=preco+atr*stopMult;alvo=preco-atr*alvoMult}
+    const rr=(alvoMult/stopMult).toFixed(2);
+    ticketEl.innerHTML=`
+      <span>Direção <b style="color:${cor}">${direcao}</b></span>
+      <span>ATR(14) <b>${atr.toFixed(casas)}</b></span>
+      <span>Entrada <b>${entrada.toFixed(casas)}</b></span>
+      <span>Stop <b style="color:var(--over)">${stop.toFixed(casas)}</b></span>
+      <span>Alvo <b style="color:var(--ok)">${alvo.toFixed(casas)}</b></span>
+      <span>R:R <b>1:${rr}</b></span>`;
+    return{entrada,stop,alvo,direcao};
+  }
+
+  function draw(candles,resLvl,supLvl,plano,casas){
+    const W=canvas.width,H=canvas.height,padTop=20,padBottom=24,padLeft=6,padRight=70;
+    const plotW=W-padLeft-padRight,plotH=H-padTop-padBottom;
+    ctx.clearRect(0,0,W,H);
+    if(!candles||!candles.length)return;
+    let allHigh=Math.max(...candles.map(c=>c.high),resLvl+((resLvl||0)*0.001+0.4));
+    let allLow=Math.min(...candles.map(c=>c.low),supLvl-((supLvl||0)*0.001+0.4));
+    if(plano){allHigh=Math.max(allHigh,plano.alvo,plano.stop);allLow=Math.min(allLow,plano.alvo,plano.stop)}
+    const N=candles.length,candleW=plotW/N;
+    const yFor=p=>padTop+(allHigh-p)/(allHigh-allLow)*plotH;
+
+    ctx.strokeStyle="#1c2c34";ctx.lineWidth=1;ctx.font="10px monospace";ctx.fillStyle="#7a939d";
+    for(let i=0;i<=5;i++){
+      const p=allLow+(allHigh-allLow)*i/5,y=yFor(p);
+      ctx.beginPath();ctx.moveTo(padLeft,y);ctx.lineTo(W-padRight,y);ctx.stroke();
+      ctx.fillText(p.toFixed(casas),W-padRight+6,y+3);
+    }
+    function level(price,color,label,dash){
+      const y=yFor(price);ctx.save();ctx.strokeStyle=color;ctx.lineWidth=1.3;ctx.setLineDash(dash||[5,4]);
+      ctx.beginPath();ctx.moveTo(padLeft,y);ctx.lineTo(W-padRight,y);ctx.stroke();ctx.setLineDash([]);
+      ctx.fillStyle=color;ctx.font="bold 10px monospace";ctx.fillText(label,padLeft+4,y-4);ctx.restore();
+    }
+    level(resLvl,"#d9553f","RES "+resLvl.toFixed(casas));
+    level(supLvl,"#7fb87a","SUP "+supLvl.toFixed(casas));
+    if(plano){
+      level(plano.entrada,"#f0a835","ENTRADA "+plano.entrada.toFixed(casas),[2,2]);
+      level(plano.stop,"#ff5c5c","STOP "+plano.stop.toFixed(casas),[3,3]);
+      level(plano.alvo,"#4fd67a","ALVO "+plano.alvo.toFixed(casas),[3,3]);
+    }
+
+    candles.forEach((c,i)=>{
+      const x=padLeft+i*candleW+candleW/2;
+      const up=c.close>=c.open;const color=up?"#7fb87a":"#d9553f";
+      ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(x,yFor(c.high));ctx.lineTo(x,yFor(c.low));ctx.stroke();
+      const yo=yFor(c.open),yc=yFor(c.close);
+      const top=Math.min(yo,yc),h=Math.max(Math.abs(yc-yo),1.4);
+      ctx.fillRect(x-candleW*0.32,top,candleW*0.64,h);
+    });
+  }
+
+  async function atualizar(){
+    const sym=symInp.value.trim()||mt5SymbolPadrao();
+    const tf=tfInp.value;
+    statusEl.textContent="carregando…";statusEl.style.color="";
+    const r=await mt5Candles(sym,tf,80);
+    if(r.erro){statusEl.textContent="✕ "+r.erro;statusEl.style.color="var(--over)";ticketEl.innerHTML="";pintaWatch();return}
+    statusEl.textContent=`✓ ${r.simbolo} ${r.timeframe} · atualizado ${new Date().toLocaleTimeString("pt-BR")}`;
+    statusEl.style.color="var(--ok)";
+    priceEl.textContent=`bid ${r.bid} / ask ${r.ask}`;
+    const symNorm=(r.simbolo||sym).toUpperCase();
+    const casas=casasFor(r.ask||r.candles[r.candles.length-1].close);
+    if(symNorm!==ultimoSimbolo){
+      const highs=r.candles.map(c=>c.high),lows=r.candles.map(c=>c.low);
+      resInp.value=Math.max(...highs).toFixed(casas);
+      supInp.value=Math.min(...lows).toFixed(casas);
+      ultimoSimbolo=symNorm;
+    }
+    const preco=r.ask||r.candles[r.candles.length-1].close;
+    const plano=atrChk.checked?montarPlanoATR(r.candles,preco,casas):null;
+    if(!plano)ticketEl.innerHTML=ticketEl.innerHTML||"";
+    draw(r.candles,parseFloat(resInp.value)||0,parseFloat(supInp.value)||0,plano,casas);
+    pintaWatch();
+  }
+
+  d.querySelector("#_gGo").onclick=atualizar;
+  resInp.addEventListener("change",atualizar);
+  supInp.addEventListener("change",atualizar);
+  stopMultInp.addEventListener("change",atualizar);
+  alvoMultInp.addEventListener("change",atualizar);
+  atrChk.addEventListener("change",()=>{if(!atrChk.checked)ticketEl.innerHTML="";atualizar()});
+  d.querySelector("#_gAuto").addEventListener("change",e=>{
+    if(autoTimer){clearInterval(autoTimer);autoTimer=null}
+    if(e.target.checked)autoTimer=setInterval(atualizar,10000);
+  });
+  d.querySelector("#_gx").onclick=fechar;
+  d.querySelector("#_gxBottom").onclick=fechar;
+  d.addEventListener("click",e=>{if(e.target===d)fechar()});
+  atualizar();
 }
 
 function abrirLista(id){
@@ -1136,6 +1462,7 @@ async function send(){
 function exportState(){
   const out=JSON.parse(JSON.stringify(S));
   for(const id in out.chans)out.chans[id].key="";
+  out.serperKey="";
   const blob=new Blob([JSON.stringify(out,null,2)],{type:"application/json"});
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);
   a.download=(S.title||"tarefa").replace(/[^\w\-]+/g,"_").toLowerCase()+".bancada.json";
@@ -1150,12 +1477,16 @@ function importState(){
       try{
         const p=JSON.parse(r.result);
         const keys={};for(const id in S.chans)keys[id]=S.chans[id].key;
+        const serperAtual=S.serperKey,mt5UrlAtual=S.mt5BridgeUrl,mt5SymAtual=S.mt5Symbol;
         S=Object.assign(S,p);
         for(const id in PROVIDERS){
           S.chans[id]=Object.assign({on:false,key:"",model:PROVIDERS[id].models[0]||""},S.chans[id]||{});
           if(typeof S.chans[id].model!=="string")S.chans[id].model=PROVIDERS[id].models[0]||"";
           if(!S.chans[id].key)S.chans[id].key=keys[id]||"";
         }
+        if(!S.serperKey)S.serperKey=serperAtual||"";
+        if(!S.mt5BridgeUrl)S.mt5BridgeUrl=mt5UrlAtual||"http://127.0.0.1:5001";
+        if(!S.mt5Symbol)S.mt5Symbol=mt5SymAtual||"XAUUSD";
         save();boot();setStatus("Tarefa carregada.");
       }catch(e){setStatus("JSON inválido.",true)}
     };r.readAsText(f);
@@ -1365,12 +1696,77 @@ function toggleWebSearch(){S.webSearchOn=!S.webSearchOn;save();renderWebSearch()
 $("#btnWebSearch")?.addEventListener("click",toggleWebSearch);
 $("#btnWebSearchQuick")?.addEventListener("click",toggleWebSearch);
 $("#serperKey")?.addEventListener("input",e=>{S.serperKey=e.target.value;save();renderWebSearch()});
+$("#serperKey")?.addEventListener("blur",e=>{const t=e.target.value.trim();if(t!==e.target.value){e.target.value=t;S.serperKey=t;save();renderWebSearch()}});
+$("#btnTestSerper")?.addEventListener("click",async()=>{
+  const out=$("#serperTestOut");
+  const key=(S.serperKey||"").trim();
+  if(!key){out.textContent="cole a chave antes de testar";out.style.color="var(--over)";return}
+  out.textContent="testando…";out.style.color="";
+  const r=await buscarInternet("teste de conexão serper",1);
+  if(r.erro){out.textContent="✕ "+r.erro;out.style.color="var(--over)"}
+  else{out.textContent="✓ chave funcionando";out.style.color="var(--ok)"}
+});
+
+/* MT5 — botão + campos de config + teste de conexão */
+function renderMt5(){
+  const on=!!S.mt5On;
+  const temUrl=(S.mt5BridgeUrl||"").trim().length>0;
+  const b=$("#btnMt5");
+  if(b){b.classList.toggle("sel",on);b.textContent="MT5: "+(on?"ON":"OFF")}
+  const urlInp=$("#mt5BridgeUrl");
+  if(urlInp&&document.activeElement!==urlInp&&urlInp.value!==(S.mt5BridgeUrl||""))urlInp.value=S.mt5BridgeUrl||"";
+  const symInp=$("#mt5Symbol");
+  if(symInp&&document.activeElement!==symInp&&symInp.value!==(S.mt5Symbol||""))symInp.value=S.mt5Symbol||"";
+  const quote=$("#mt5Quote");
+  if(quote&&!on)quote.textContent="";
+  if(!temUrl&&on){const out=$("#mt5TestOut");if(out)out.textContent="⚠ falta a URL da bridge"}
+  renderMt5Watchlist();
+}
+function renderMt5Watchlist(){
+  const el=$("#mt5Watchlist");if(!el)return;
+  el.innerHTML="";
+  (S.mt5Watchlist||[]).forEach(sym=>{
+    const chip=document.createElement("span");
+    chip.className="pill";chip.style.cssText="display:inline-flex;align-items:center;gap:5px;cursor:pointer;padding:3px 8px";
+    chip.innerHTML=`<span>${esc(sym)}</span><span data-rm="${esc(sym)}" style="opacity:.6;cursor:pointer" title="remover">✕</span>`;
+    chip.querySelector("span:first-child").onclick=()=>{S.mt5Symbol=sym;save();renderMt5()};
+    chip.querySelector("[data-rm]").onclick=(e)=>{e.stopPropagation();S.mt5Watchlist=(S.mt5Watchlist||[]).filter(s=>s!==sym);save();renderMt5Watchlist()};
+    el.appendChild(chip);
+  });
+}
+function toggleMt5(){S.mt5On=!S.mt5On;save();renderMt5()}
+$("#btnMt5")?.addEventListener("click",toggleMt5);
+$("#mt5BridgeUrl")?.addEventListener("input",e=>{S.mt5BridgeUrl=e.target.value;save();renderMt5()});
+$("#mt5BridgeUrl")?.addEventListener("blur",e=>{const t=e.target.value.trim();if(t!==e.target.value){e.target.value=t;S.mt5BridgeUrl=t;save()}});
+$("#mt5Symbol")?.addEventListener("input",e=>{S.mt5Symbol=e.target.value;save();renderMt5()});
+$("#mt5Symbol")?.addEventListener("blur",e=>{const c=limparSimbolos(e.target.value)[0]||"";if(c!==e.target.value){e.target.value=c;S.mt5Symbol=c;save()}});
+function addToWatchlist(){
+  const inp=$("#mt5WatchAdd");
+  const novos=limparSimbolos(inp.value); // aceita colar vários símbolos separados por vírgula/espaço de uma vez
+  if(!novos.length)return;
+  if(!S.mt5Watchlist)S.mt5Watchlist=[];
+  novos.forEach(v=>{if(!S.mt5Watchlist.includes(v))S.mt5Watchlist.push(v)});
+  inp.value="";save();renderMt5Watchlist();
+}
+$("#btnMt5WatchAdd")?.addEventListener("click",addToWatchlist);
+$("#mt5WatchAdd")?.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();addToWatchlist()}});
+$("#btnTestMt5")?.addEventListener("click",async()=>{
+  const out=$("#mt5TestOut"),quote=$("#mt5Quote");
+  if(!(S.mt5BridgeUrl||"").trim()){out.textContent="preencha a URL da bridge antes";out.style.color="var(--over)";return}
+  out.textContent="testando…";out.style.color="";
+  const r=await mt5Preco();
+  if(r.erro){out.textContent="✕ "+r.erro;out.style.color="var(--over)";if(quote)quote.textContent=""}
+  else{
+    out.textContent="✓ bridge respondendo";out.style.color="var(--ok)";
+    if(quote)quote.textContent=`${r.simbolo}: bid ${r.bid} / ask ${r.ask}`;
+  }
+});
 
 /* BOOT */
 function boot(){
   $("#taskTitle").value=S.title;
   $("#brief").value=S.brief;
-  renderPerfis();renderChans();renderFiles();renderTurns();renderMode();renderMeters();renderWebSearch();
+  renderPerfis();renderChans();renderFiles();renderTurns();renderMode();renderMeters();renderWebSearch();renderMt5();
 }
 load();boot();fitPrompt();
 
@@ -1381,6 +1777,7 @@ $("#prompt").addEventListener("input",()=>{fitPrompt();renderMeters()});
 $("#prompt").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();send()}});
 $("#btnSend").addEventListener("click",send);
 $("#btnManual").addEventListener("click",abrirManual);
+$("#btnGrafico").addEventListener("click",abrirGrafico);
 $("#btnPonte").addEventListener("click",abrirPonte);
 $("#btnImg").addEventListener("click",abrirImagem);
 $("#btnExport").addEventListener("click",exportState);
