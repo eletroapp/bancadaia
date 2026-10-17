@@ -275,5 +275,16 @@ window.DADOS = [
   "subcategoria": "casa-cameras-seguranca",
   "observacoes": "",
   "serve_para": "câmera de segurança externa lente dupla 4K 6MP, com sirene policial, monitoramento externo, acompanha cartão MicroSD 16GB"
- }
+ },
+ {
+    "nome":"Sensor De Ré Estacionamento 4 Pontos Universal Preto Prata ",
+    "imagem":"https://down-br.img.susercontent.com/file/br-11134207-81ztc-mjt6d8pprfgh05.webp",
+    "preco":53.20,
+    "url_shopee":"https://shopee.com.br/Sensor-De-R%C3%A9-Estacionamento-4-Pontos-Universal-Preto-Prata-Branco-i.1429963529.51405128981?extraParams=%7B%22display_model_id%22%3A320759660408%2C%22model_selection_logic%22%3A3%7D",
+    "link_afiliado":"https://shopee.com.br/product/1429963529/51405128981?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMaBRvcqdZwgRklGTWoHoxFGhRfNAexxPkhN1n8rcCO5qFEud_-aY2hsGdfUnqCpX0P0Z7lpJy6IP6_Ew8qmNpcGhlcnRleHTEhgAAAAzOTrSvgOnSNHCkgFaS0zQjhq4SL9Pl65Gugaz3VRwG-rvwfUs5z6wXWRCXo6BLma64_4ENQuVOR2BO6wf0yufyqBUBGC8k7EtCOycawwzzQKOGXrSZgc91WmLjR4YpCUehW6nD2q2hDnE67irHtDMpJUo6UtBmj6DBGwqAWqLOtqFs&mmp_pid=an_18398551174&uls_trackid=56t9dupq040o&utm_campaign=id_AHekIBcgJWf&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fppghdjwnfzx",
+    "categoria":"veiculos",
+    "obeservacoes":"",
+    "serve_para":"Sensor De Ré Estacionamento 4 Pontos Universal Preto Prata,evita incidentes ao mostra barreiras abaixo da linha de visao no retrovisor"
+
+ },
 ];
