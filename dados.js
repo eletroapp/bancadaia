@@ -1702,7 +1702,7 @@ window.DADOS = [
     "categoria": "eletronica",
     "subcategoria": "alto-falantes",
     "observacoes": "",
-    "serve_para": "alto-falante woofer 15 polegadas, subwoofer 250W RMS 8 ohms, sub graves para caixa de som e som automotivo, ATK WF380, montar ou trocar alto-falante",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1714,7 +1714,7 @@ window.DADOS = [
     "categoria": "eletronica",
     "subcategoria": "alto-falantes",
     "observacoes": "",
-    "serve_para": "alto-falante woofer 15 polegadas, woofer 250W RMS 4 ohms, suspensão de tecido, graves para caixa de som, trocar alto-falante, Magnum",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1723,10 +1723,10 @@ window.DADOS = [
     "preco": 24.49,
     "url_loja": "https://shopee.com.br/Kit-580-Pe%C3%A7as-Tubo-Termo-Retr%C3%A1til-Preto-Ou-Colorido-Emendar-Isolar-Fios-Cabos-i.1432047236.27726753141?extraParams=%7B%22display_model_id%22%3A257678447078%2C%22model_selection_logic%22%3A3%7D&image_ids=cn-11134207-820l4-mfuj0rzbjo5qb2",
     "link_afiliado": "https://shopee.com.br/product/1432047236/27726753141?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhgAAAAy6zJMQMjhd9BkusncHxrM0ow_YEVUr7QPPDRqXd_4x9GnTQIC7rdBG-Kr4CHmGs4mNdrgfkaXxU_0hv1bobFAsfF-fjPLpavGBN6d40TdFVq6n0qJjec8arbmeTRdcOQja2CznHrblEda4VXZ4P-Is2tpH7gvnxJDgptbOEOOhVeGR&mmp_pid=an_18398551174&uls_trackid=574b06b100je&utm_campaign=id_AKgQIDQbdFZ&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fuhutg6zag55",
-    "categoria": "eletronica",
-    "subcategoria": "espaguete-termo-retratil",
+    "categoria": "eletrica",
+    "subcategoria": "fios-e-cabos",
     "observacoes": "",
-    "serve_para": "isolar e proteger emendas de fios e cabos, kit de tubo termo retrátil com 580 peças, espaguete termo preto ou colorido, acabamento de solda, várias bitolas",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1736,9 +1736,9 @@ window.DADOS = [
     "url_loja": "https://shopee.com.br/10-Pcs-450-V-2.2-Uf-10-Pcs-Cbb-Filme-Capacitor-De-Polipropileno-De-Pol%C3%ADmero-20mm-225-2.2uF-450-V-i.236439383.3221074169?extraParams=%7B%22display_model_id%22%3A71849563434%2C%22model_selection_logic%22%3A3%7D&image_ids=1abd639119adb4dc4adfe262326978f9",
     "link_afiliado": "https://shopee.com.br/product/236439383/3221074169?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEggAAAAxkHs7JkfL2wCU8rKgfy3uyobpNB05tZkrtj-_Az2AzpymIsaVpTLvl09-qMSfD0e0skAdgILre7PauPSparYnurrken3-DwLi5pYqT17mPk0ujuVD0xXMvYhm48bA_SLLP4Fz1hyA-_Y94JQQOvgE3rylakHSH_j3XkmR7pz4&mmp_pid=an_18398551174&uls_trackid=574b10uv00kf&utm_campaign=id_1zdpGIFTfdx&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fuhvg8nja9gs",
     "categoria": "eletronica",
-    "subcategoria": "capacitor-poliester",
+    "subcategoria": "componentes-passivos",
     "observacoes": "",
-    "serve_para": "capacitor de filme CBB 2,2uF 450V, capacitor de polipropileno 225, reparo e montagem de circuitos, kit com 10 peças",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1748,9 +1748,9 @@ window.DADOS = [
     "url_loja": "https://shopee.com.br/Kit-50-Pe%C3%A7as-D%C3%ADodo-Zener-18v-1w-1n4746-In4746-i.833372271.21699232545?extraParams=%7B%22display_model_id%22%3A199161381835%2C%22model_selection_logic%22%3A3%7D&image_ids=sg-11134201-7rcdc-lt5btidjr6g651",
     "link_afiliado": "https://shopee.com.br/product/833372271/21699232545?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhAAAAAy9-D0uBAXvCpT_jIINTa5aaNH7W5PNB4VkkJ1lCcrB1X5x8t0M1BCw_2_QWBJVWEGOQRHzBFLtaWT2O5TxoKpvMl25dyyJYw9qz_HAEB9TqyRQuSEW1MjMil1YqTuao_O1ktpj-1tVpciPpFPqpJgKJBRd9q6BRMQdUR8Gq8Ddzg&mmp_pid=an_18398551174&uls_trackid=574b1qmi00c1&utm_campaign=id_7WEEn3U9dwv&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fuhw3a788poh",
     "categoria": "eletronica",
-    "subcategoria": "diodo-zener",
+    "subcategoria": "diodos-e-reguladores",
     "observacoes": "",
-    "serve_para": "diodo zener 18V 1W 1N4746, regular e limitar tensão em circuitos, proteção de circuito eletrônico, kit com 50 peças",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1760,9 +1760,9 @@ window.DADOS = [
     "url_loja": "https://shopee.com.br/5-x-Trimpot-Vedado-Horizontal-1volta-*-Arz-470R-(471)-i.309518738.10134261614?extraParams=%7B%22display_model_id%22%3A101755206032%2C%22model_selection_logic%22%3A3%7D&image_ids=4548c49c244eb9c2fa1ba9b5a4841042",
     "link_afiliado": "https://shopee.com.br/product/309518738/10134261614?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhAAAAAzPXTBZPBJj9rFYfs83TBYY9-9AlOObFZ2m7mAin06wBjROgScV2aqqrfIxPA5yOu-JYnwrRgmDw0LHswq1yKJrFFL7R4uK1nxRPhpJaPU6VTZi9rWNldIwcxbEk7uuhtqwFogtkmNAolwCbc6_0sedbJEQhJM5GKZuaE_vk0DODA&mmp_pid=an_18398551174&uls_trackid=574b2tlc00k8&utm_campaign=id_1iu9QrmddBh&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fuhwwv9hguyq",
     "categoria": "eletronica",
-    "subcategoria": "trimpot-horizontal-lacrado",
+    "subcategoria": "componentes-passivos",
     "observacoes": "",
-    "serve_para": "trimpot vedado horizontal de 1 volta, potenciômetro de ajuste 470 ohms (471), calibrar e ajustar circuitos, kit com 5 peças",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1772,9 +1772,9 @@ window.DADOS = [
     "url_loja": "https://shopee.com.br/Capacitor-Disco-Ceramico-470pf-X-500v-471-i.449065060.18950019655?extraParams=%7B%22display_model_id%22%3A145885366098%2C%22model_selection_logic%22%3A3%7D&image_ids=br-11134201-820m2-mqxcqqiabc3p0f",
     "link_afiliado": "https://shopee.com.br/product/449065060/18950019655?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhAAAAAyK8ohgINsGpFoo62XpgR1IBAmsv_mSPSZfqkDucmC8UkLqA4NEgd9AoxBp8Xuspd8aRiHDKSF_pldmahZbkYVNfaM7s7yS5GNEjJ5cYHcIVshiZAuq-lbZoY8uKckmiPMZyfR5Jx7xJYMG-79M4psPbfz5AiWqAGkqZgWEu2Tu9Q&mmp_pid=an_18398551174&uls_trackid=574b43qv00jp&utm_campaign=id_9pnXv7IqXMX&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fuhxu3mb9fvf",
     "categoria": "eletronica",
-    "subcategoria": "capacitor-disco-ceramico",
+    "subcategoria": "componentes-passivos",
     "observacoes": "",
-    "serve_para": "capacitor cerâmico de disco 470pF 500V (471), reparo e montagem de circuitos, componente eletrônico",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1784,9 +1784,9 @@ window.DADOS = [
     "url_loja": "https://shopee.com.br/KIT-COM-10-PE%C3%87AS-CAPACITOR-CERAMICO-DISCO-39PF-500V-DC-NP0-i.1225978268.23793699433?extraParams=%7B%22display_model_id%22%3A149782187632%2C%22model_selection_logic%22%3A3%7D&image_ids=sg-11134201-7rcdq-m66y8t5kemjbb8",
     "link_afiliado": "https://shopee.com.br/product/1225978268/23793699433?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhgAAAAyTupko8ypJgu3TvMffmTwWrPbV4wG6AzXtMXbpkNEYMGWWZA_kK-y748KK4iaRRwJL8KpyBWms4mqTFIw3pwZmCZuGcS4tcVGTmRaO0Mwi0fIgacrpyfyZy30jaUz496-B3ci8gFj_6MH59acEv126CEW8B5rsgHKYuDbvLYC7Es84&mmp_pid=an_18398551174&uls_trackid=574b53v600bu&utm_campaign=id_5oLytAqw2SP&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fuhymczmjf99",
     "categoria": "eletronica",
-    "subcategoria": "capacitor-disco-ceramico",
+    "subcategoria": "componentes-passivos",
     "observacoes": "",
-    "serve_para": "capacitor cerâmico de disco 39pF 500V NP0, osciladores e circuitos de alta frequência, reparo e montagem de circuitos, kit com 10 peças",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1796,9 +1796,9 @@ window.DADOS = [
     "url_loja": "https://shopee.com.br/50-P%C3%A7s-Capacitor-Eletrol%C3%ADtico-47uf-50v-47-x-50-105%C2%BAC-i.894959827.23597276917?extraParams=%7B%22display_model_id%22%3A189591837566%2C%22model_selection_logic%22%3A3%7D&image_ids=sg-11134201-7rbkx-lq0upmhv70psb0",
     "link_afiliado": "https://shopee.com.br/product/894959827/23597276917?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhAAAAAzYoyo_LOmxPjkFFNguJEenDeTcX51__3nPr5ILTkZ6FxxSQqsm7PmZJgql9_0CmkednBHN5Bk8htRWnmXVHkkFN0jyEU1jQ5rXFsixAtukyoZJv0eZHngt6-xHHGAJBNrIJLYu4OY_Sth5aDCGcOqfwW1BwN-oUHq4Rqkw4Qo8DA&mmp_pid=an_18398551174&uls_trackid=574b68ge00bq&utm_campaign=id_AaW9LFRc0Nd&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fuhzh8w11i6j",
     "categoria": "eletronica",
-    "subcategoria": "capacitor-eletrolitico",
+    "subcategoria": "componentes-passivos",
     "observacoes": "",
-    "serve_para": "capacitor eletrolítico 47uF 50V 105ºC, reparo de placas e fontes, kit com 50 peças, bancada de eletrônica",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1807,10 +1807,10 @@ window.DADOS = [
     "preco": 75.89,
     "url_loja": "https://shopee.com.br/Medidor-de-%C3%82ngulo-Digital-Inclin%C3%B4metro-Magn%C3%A9tico-4-Lados-com-N%C3%ADvel-de-Precis%C3%A3o-i.1452500143.58255937665?extraParams=%7B%22display_model_id%22%3A169725541078%2C%22model_selection_logic%22%3A3%7D&image_ids=br-11134207-820m8-ml7p7wiqbrwl8c",
     "link_afiliado": "https://shopee.com.br/product/1452500143/58255937665?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhgAAAAy4dMsroZjFh7cikEjrcm9eRqK1vbPhTwrKtIdrwNfdAEyL1t3oXGvDVmzFwTpleK7ZMGUVjSAid_4nPQmeWmPb0foS-OzSpBIAzavBaGVRSoqKGOsLuhCSBRUp0cB1fZnm7AdPKfO-egKPR7ybwnqgX9BFLMwUpA3XZRoxsQD1toNy&mmp_pid=an_18398551174&uls_trackid=574b6s0403sh&utm_campaign=id_82fzlpdxy05&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fuhzy6robipw",
-    "categoria": "eletronica",
-    "subcategoria": "medidor-angular",
+    "categoria": "ferramentas-construcao",
+    "subcategoria": "medicao-e-nivel",
     "observacoes": "",
-    "serve_para": "medir ângulo e inclinação, inclinômetro digital magnético, nível digital com base magnética de 4 lados, medidor de ângulo para serra e marcenaria",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1822,7 +1822,7 @@ window.DADOS = [
     "categoria": "eletronica",
     "subcategoria": "celulares",
     "observacoes": "",
-    "serve_para": "celular Motorola Moto G86 5G, smartphone com 256 GB e 8 GB de RAM, celular com NFC, kit com fone Bluetooth, smartwatch e power bank",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1834,7 +1834,7 @@ window.DADOS = [
     "categoria": "veiculos",
     "subcategoria": "bicicletas-eletricas",
     "observacoes": "",
-    "serve_para": "bicicleta elétrica 500W, bike elétrica até 35 km/h, autonomia de 50 km, deslocamento diário, OIMOTOO",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1846,7 +1846,7 @@ window.DADOS = [
     "categoria": "informatica",
     "subcategoria": "placas-de-video",
     "observacoes": "",
-    "serve_para": "placa de vídeo GeForce RTX 5080 16GB, placa Palit Infinity 3 OC, PC gamer de alto desempenho, 256 bits, HDMI e 3 DisplayPort",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1858,7 +1858,7 @@ window.DADOS = [
     "categoria": "veiculos",
     "subcategoria": "bicicletas-eletricas",
     "observacoes": "",
-    "serve_para": "bicicleta elétrica dobrável, bike elétrica para adultos, viagens e deslocamentos diários, NIUDA",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1868,9 +1868,9 @@ window.DADOS = [
     "url_loja": "https://shopee.com.br/4-Em-1-Kit-Ferramenta-El%C3%A9trica-Hammer-Drill-Angle-Grinder-Screwdriver-and-Impact-Wrench-2-x-48V-Carrying-Case-i.1871725488.58268902422?extraParams=%7B%22display_model_id%22%3A209628200263%2C%22model_selection_logic%22%3A3%7D&image_ids=br-11134207-820lh-mti6hbeg9vk204",
     "link_afiliado": "https://shopee.com.br/product/1871725488/58268902422?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhgAAAAyM9UUETF6oCfbhOOKfGG-mSZ3rACICehVYIgXYXAkVL_jAFKz31DAD3tN8pu_a-03fr3DmTjt1h-SmGRXV9Fo0Ocyr6b4lLRO2fgDVP5fm8zgcLKM_lKCDLNuGcFsApc-AprydXl21-TwW3sLHn-woy7iwuJRuZGcBpEnsQanLaEPH&mmp_pid=an_18398551174&uls_trackid=574bej7m00bt&utm_campaign=id_3EywOUZ4TQf&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fui6wcjvsm91",
     "categoria": "ferramentas-construcao",
-    "subcategoria": "kits-de-ferramentas",
+    "subcategoria": "kits-de-ferramentas-eletricas",
     "observacoes": "",
-    "serve_para": "kit de ferramentas elétricas a bateria 4 em 1, furadeira de impacto, esmerilhadeira angular, parafusadeira e chave de impacto, 2 baterias 48V com maleta",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1882,7 +1882,7 @@ window.DADOS = [
     "categoria": "eletronica",
     "subcategoria": "osciloscopios",
     "observacoes": "",
-    "serve_para": "osciloscópio portátil de 2 canais, osciloscópio 3 em 1 com gerador de sinais DDS e multímetro, 50MHz 250MS/s, medir sinais em circuitos, Fnirsi",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
@@ -1894,7 +1894,79 @@ window.DADOS = [
     "categoria": "eletronica",
     "subcategoria": "celulares",
     "observacoes": "",
-    "serve_para": "celular BML W&O WO1 5G, smartphone 12+512GB, celular com tela de 6,79 polegadas, celular com projetor",
+    "serve_para": "",
+    "loja": "shopee"
+  },
+  {
+    "nome": "Ic1003 - Ic 1003 - Para Amplificadores Ciclotron E Wattsom",
+    "imagem": "https://down-br.img.susercontent.com/file/6ada9cf2a21a413236da27eb0115d24f@resize_w900_nl.webp",
+    "preco": 39.9,
+    "url_loja": "https://shopee.com.br/Ic1003-Ic-1003-Para-Amplificadores-Ciclotron-E-Wattsom-i.352520544.15901759159?extraParams=%7B%22display_model_id%22%3A150079237951%2C%22model_selection_logic%22%3A3%7D&image_ids=6ada9cf2a21a413236da27eb0115d24f",
+    "link_afiliado": "https://shopee.com.br/product/352520544/15901759159?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhAAAAAyUKQSU2f_Oby7H9p9imND9E32wmn1HT4BKrHtx26cMTWpNn2Hmh0CJlMXOY_UMgR0VpZx2ph6Q_xcH_qOmQOqflCpyf1qnOc5q0-zgBDUESlTrGjHSxEQzDI8KZU-28QcLAgLScvJJpAwBpWAY7kihOtW7pLzaCqXjVtFTdCcfDg&mmp_pid=an_18398551174&uls_trackid=574k1iks01c2&utm_campaign=id_2kUzUpibtRR&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fupeiunvdfc3",
+    "categoria": "eletronica",
+    "subcategoria": "circuitos-integrados",
+    "observacoes": "",
+    "serve_para": "",
+    "loja": "shopee"
+  },
+  {
+    "nome": "CAPACITOR ELETROLITICO 3300X63V - 3300UF X 63V",
+    "imagem": "https://down-br.img.susercontent.com/file/sg-11134201-7rccl-lt5cl77f0kfve9@resize_w900_nl.webp",
+    "preco": 17.56,
+    "url_loja": "https://shopee.com.br/CAPACITOR-ELETROLITICO-3300X63V-3300UF-X-63V-105%C2%BA-GRAUS-i.452863694.22397421361?extraParams=%7B%22display_model_id%22%3A199161382651%2C%22model_selection_logic%22%3A3%7D&image_ids=sg-11134201-7rccl-lt5cl77f0kfve9",
+    "link_afiliado": "https://shopee.com.br/product/452863694/22397421361?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhAAAAAzLqWyKA7MX_MjnliBU_Wj5n5SA2icA48qSWZTl_vARkWp3cWRjstHVS1T4-ef_jRMNLJp8PlChZGjN-lmOo8stBtT2QwdjwSyhcYouiIQ26uVJphUsjO7I70O6PqYVVkTGvnabbHM3X7L5w8Er74mqoE6bJooz3ON_n0PKE5uVSw&mmp_pid=an_18398551174&uls_trackid=574k2bd400c4&utm_campaign=id_7aZ6ByxrrnV&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fupf53zjxuyq",
+    "categoria": "eletronica",
+    "subcategoria": "componentes-passivos",
+    "observacoes": "",
+    "serve_para": "",
+    "loja": "shopee"
+  },
+  {
+    "nome": "Transistor Par 2SJ4215 2SJ4315 (1 Par) J4215 J4315",
+    "imagem": "https://down-br.img.susercontent.com/file/sg-11134201-821dz-mh2l6wfzfa4p19@resize_w900_nl.webp",
+    "preco": 39.86,
+    "url_loja": "https://shopee.com.br/Transistor-Par-2SJ4215-2SJ4315-(1-Par)-J4215-J4315-Novo-i.452132163.22194716783?extraParams=%7B%22display_model_id%22%3A179411032251%2C%22model_selection_logic%22%3A3%7D&image_ids=sg-11134201-821dz-mh2l6wfzfa4p19",
+    "link_afiliado": "https://shopee.com.br/product/452132163/22194716783?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhAAAAAwwMN5XdzbZj4HLzZJDiNysK8YDE6zot3269Bx5_L4qRqQpUe3WYcSrpN73x-bg9v6h--wnV0LQkbUFs6p5ZQrUGMJxBfn1TME2DW2J9tHcMZvvrGcGZAYpGY-NN-A7RN-nG8JVbkWFlES0GgkYxpBbQZs8LyLVeqVl6Eo5Qf3RYA&mmp_pid=an_18398551174&uls_trackid=574k4af000bs&utm_campaign=id_8KF8A5dlHPl&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fupgno6mbw3o",
+    "categoria": "eletronica",
+    "subcategoria": "transistores",
+    "observacoes": "",
+    "serve_para": "",
+    "loja": "shopee"
+  },
+  {
+    "nome": "Transistor Npn Bc337 To92 Kit Com 10 Peças",
+    "imagem": "https://down-br.img.susercontent.com/file/br-11134207-7r98o-lreyka8s6jgtd1@resize_w900_nl.webp",
+    "preco": 6.7,
+    "url_loja": "https://shopee.com.br/Transistor-Npn-Bc337-To92-Kit-Com-10-Pe%C3%A7as-Uso-Geral-Granel-Oferta-Imperd%C3%ADvel-i.778214063.18599192437?extraParams=%7B%22display_model_id%22%3A219592672615%2C%22model_selection_logic%22%3A3%7D&image_ids=br-11134207-7r98o-lreyka8s6jgtd1",
+    "link_afiliado": "https://shopee.com.br/product/778214063/18599192437?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhAAAAAyjvMDb7N6qdfJbN79Uf6bvmgbB5wxkHF6MsX-17PC0dHTzSC6DAaSd5rHcsUl8XJtnNdUG-tWB5zY7_bkZynO0w98pIAh02IW2zVcLYv0wM5PdDaOq9R8jnDTJwPHzB5hnapMSsH8gDAr2Tdc47T-_atJHcYb9c0koLtS6TeJ2Rw&mmp_pid=an_18398551174&uls_trackid=574k513601kf&utm_campaign=id_A6buhY3o4U5&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fuph76dfhahu",
+    "categoria": "eletronica",
+    "subcategoria": "transistores",
+    "observacoes": "",
+    "serve_para": "",
+    "loja": "shopee"
+  },
+  {
+    "nome": "Roteador Sem Fio Nokia G-140W-C Wireless Modem",
+    "imagem": "https://down-br.img.susercontent.com/file/sg-11134201-7rcbu-m6ft4zozkb9706.webp",
+    "preco": 77.0,
+    "url_loja": "https://shopee.com.br/Roteador-Sem-Fio-Nokia-G-140W-C-Wireless-Modem-Wifi-Novo-1pot-4ge-2.4-5ghz-NF-e-i.1187512053.23298212852?extraParams=%7B%22display_model_id%22%3A189171675783%2C%22model_selection_logic%22%3A3%7D&image_ids=sg-11134201-7rcbu-m6ft4zozkb9706",
+    "link_afiliado": "https://shopee.com.br/product/1187512053/23298212852?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEhgAAAAwzdotfwYeFrXm2Zxl2FRJVNpPoJgIhD-MPiJbYk26oj9jZpgMImaG_DCAFKKzMvl2JO0ERjQWHIMkA3iP11OqR26O6ycQFw0aR6BPlmAe2oMWrEZwy_MT56U3uKSarymYbq9yrqlGq4cOX7TGUB6pIPzvcrY9S7RkkJJ_6oM1PKLrz&mmp_pid=an_18398551174&uls_trackid=574k5ps100c4&utm_campaign=id_2ZAHhRf3fpZ&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fuphsf7u65ao",
+    "categoria": "informatica",
+    "subcategoria": "redes-e-roteadores",
+    "observacoes": "",
+    "serve_para": "",
+    "loja": "shopee"
+  },
+  {
+    "nome": "Kit 10 Peças - Potênciometro Linear Rotativo 50k L20 Mini Wh148-1",
+    "imagem": "https://down-br.img.susercontent.com/file/0b25adaf24c80d4c727de9a2399aa8a6@resize_w900_nl.webp",
+    "preco": 19.9,
+    "url_loja": "https://shopee.com.br/Kit-10-Pe%C3%A7as-Pot%C3%AAnciometro-Linear-Rotativo-50k-L20-Mini-Wh148-1-i.528312352.8594804367?extraParams=%7B%22display_model_id%22%3A27699640343%2C%22model_selection_logic%22%3A3%7D&image_ids=0b25adaf24c80d4c727de9a2399aa8a6",
+    "link_afiliado": "https://shopee.com.br/product/528312352/8594804367?channel_code=MyCollection&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMc1TPTF0zl9lUk9doKYfbtNkYCBZaTm6dQ6q3WJIrnGYlyLtpSCE1-D6jy2YmlKEe_b7zxJZfI6lpwZ6fqmNpcGhlcnRleHTEggAAAAxnFekwvHD3xC_AbyAWJcIFWSGRzj3l1rfDXjBne2Uuqud2vALAp7wTU4wFsF5_bOWpKZaycEBn8W6dD1xcmpJtttsQj_YHMGzAlVz7GQM72DGCOUyfgZlZz0tENJDcrZNwPtK4z0oRrfgUxBqhfeBfSEnijcwB5sco0ozvBH4&mmp_pid=an_18398551174&uls_trackid=574k701b00br&utm_campaign=id_7WGsSGLBwrZ&utm_content=----&utm_medium=affiliates&utm_source=an_18398551174&utm_term=fupipndgnj3v",
+    "categoria": "eletronica",
+    "subcategoria": "componentes-passivos",
+    "observacoes": "",
+    "serve_para": "",
     "loja": "shopee"
   },
   {
